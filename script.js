@@ -1,18 +1,50 @@
-let footfalls = 200;
-let energy = 3.6;
-let co2 = energy * 0.84;
+let footfalls = 0;
+let energy = 0;
+let co2 = 0;
 
-document.getElementById("footCount").innerHTML = footfalls;
-document.getElementById("energyCount").innerHTML = energy + " Wh";
-document.getElementById("co2Saved").innerHTML = co2.toFixed(2) + " g";
+let graphData = [];
+let labels = [];
 
-new Chart(document.getElementById("energyChart"), {
-    type: 'line',
-    data: {
-        labels: ["10AM","11AM","12PM","1PM","2PM","3PM"],
-        datasets: [{
-            label: "Energy (Wh)",
-            data: [0.5,1.1,1.8,2.4,3.1,3.6]
+// Update UI Function
+function updateUI(){
+    document.getElementById("footCount").innerHTML=footfalls;
+    document.getElementById("energyCount").innerHTML=energy.toFixed(3) + " Wh";
+    document.getElementById("co2Saved").innerHTML=co2.toFixed(3) + " g";
+}
+
+// Chart Setup
+const ctx = document.getElementById('energyChart');
+const chart = new Chart(ctx,{
+    type:"line",
+    data:{
+        labels:labels,
+        datasets:[{
+            label:"Energy (Wh)",
+            borderColor:"#7CFF5A",
+            data:graphData
         }]
+    },
+    options:{
+        scales:{
+            y:{ticks:{color:"white"}},
+            x:{ticks:{color:"white"}}
+        },
+        plugins:{legend:{labels:{color:"white"}}}
     }
 });
+
+// On Foot Press
+document.getElementById("footBtn").addEventListener("click", ()=>{
+    footfalls++;
+    energy += 0.005;  // energy per step (editable)
+    co2 += energy*0.00084;
+
+    labels.push(footfalls+"th step");
+    graphData.push(energy);
+
+    chart.update();
+    updateUI();
+});
+
+updateUI();
+
