@@ -9,8 +9,8 @@
 <body>
 
 <header>
-    <h1>⚡ Energy Harvesting Footpath</h1>
-    <p>Simulated Foot Step → Energy Generation Demo</p>
+    <h1>⚡ Smart Energy Harvesting Footpath</h1>
+    <p>Real-time Step → Energy → Environment Impact Dashboard</p>
 </header>
 
 <div class="container">
@@ -21,8 +21,8 @@
     </div>
 
     <div class="card">
-        <h2>Energy Generated</h2>
-        <p id="energyCount" class="value">0 Wh</p>
+        <h2>Energy (Wh)</h2>
+        <p id="energyCount" class="value">0</p>
     </div>
 
     <div class="card">
@@ -32,11 +32,33 @@
 
 </div>
 
+<!-- Battery Animation -->
+<div id="batteryBox">
+    <div id="batteryLevel"></div>
+</div>
+<p style="margin-top:8px;">Battery Charging Simulation</p>
+
+<!-- Foot press button -->
 <button id="footBtn">👣 Press Foot</button>
 
+<!-- Real World Impact Section -->
+<div class="impactBox">
+    <p>📱 Phone Charges: <span id="phoneCount">0</span>%</p>
+    <p>💡 Bulb Time: <span id="bulbTime">0</span> minutes</p>
+</div>
+
+<!-- Graph -->
 <div class="chartBox">
     <canvas id="energyChart"></canvas>
 </div>
+
+<!-- sound -->
+<audio id="stepSound" src="https://actions.google.com/sounds/v1/foley/footstep_carpet_1.ogg"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
