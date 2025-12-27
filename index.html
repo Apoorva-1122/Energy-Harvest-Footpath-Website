@@ -1,39 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Energy Harvesting Footpath Dashboard</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Energy Harvesting Footpath</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
 
 <header>
-    <h1>Energy Harvesting Footpath</h1>
-    <p>Footfall & Energy Monitoring System</p>
+    <h1>⚡ Energy Harvesting Footpath</h1>
+    <p>Simulated Foot Step → Energy Generation Demo</p>
 </header>
 
-<section class="cards">
+<div class="container">
+
     <div class="card">
-        <h2>Footfalls Today</h2>
-        <p id="footCount">0</p>
+        <h2>Footfalls</h2>
+        <p id="footCount" class="value">0</p>
     </div>
 
     <div class="card">
         <h2>Energy Generated</h2>
-        <p id="energyCount">0 Wh</p>
+        <p id="energyCount" class="value">0 Wh</p>
     </div>
 
     <div class="card">
         <h2>CO₂ Saved</h2>
-        <p id="co2Saved">0 g</p>
+        <p id="co2Saved" class="value">0 g</p>
     </div>
-</section>
 
-<canvas id="energyChart"></canvas>
+</div>
+
+<button id="footBtn">👣 Press Foot</button>
+
+<div class="chartBox">
+    <canvas id="energyChart"></canvas>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="script.js"></script>
-
 </body>
 </html>
+
